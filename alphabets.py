@@ -16,23 +16,22 @@ class Figura(ABC):
 
 
 class Alphabet(Figura):
-    def __init__(self, characters):
-        self.list_alpha = list(characters)
+    def __init__(self, alphabet):
+        self.list_alpha = list(alphabet)
 
     def add_alphabet(self, string):
         self.list_alpha.extend(string.split(','))
 
     def union(self, otter):
-        new_alpha = Alphabet("".join(self.list_alpha))
-        new_alpha.add_alphabet("".join(otter.list_alpha))
+        new_alpha = Alphabet(self.list_alpha.union(otter.list_alpha))
         return new_alpha
 
     def intersection(self, otter):
-        new_alpha = Alphabet("".join(filter(lambda x: x in otter.list_alpha, self.list_alpha)))
+        new_alpha = Alphabet(self.list_alpha.intersection(otter.list_alpha))
         return new_alpha
 
     def difference(self, otter):
-        new_alpha = Alphabet("".join(filter(lambda x: x not in otter.list_alpha, self.list_alpha)))
+        new_alpha = Alphabet(self.list_alpha.difference(otter.list_alpha))
         return new_alpha
 
     def star_lock(self, n):

@@ -1,6 +1,5 @@
 import random
 
-
 class Figura():
     def union(self, other):
         if isinstance(other, self.__class__):
@@ -35,7 +34,7 @@ class Alphabet(Figura):
     
     def difference(self, other):
         return self.__class__(super().difference(other))
-    
+
     def generate_word(self):
         word = []
         auxiliary_list=list(self.list_elements)
@@ -51,6 +50,17 @@ class Alphabet(Figura):
             Language.add(Generated_word)
         return Language
 
+    def star_lock(self, length_star):
+        result = []
+
+        if length_star == 0:
+           return result
+
+        for _ in range(length_star):
+            symbol_length = random.randint(0, 10)
+            combination = ''.join(random.choice(list(self.list_elements)) for _ in range(symbol_length))
+            result.append(combination)
+        return result
 
 
 

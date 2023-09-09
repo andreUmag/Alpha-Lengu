@@ -2,7 +2,6 @@
 from alphabets import Alphabet 
 from language import *
 
-
 print("Generador de Lenguajes\n","")
 words = input("Ingrese la cadena de caracteres del lenguaje separados por comas: ")
 alp1=Alphabet(words)

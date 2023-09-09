@@ -56,6 +56,7 @@ class Alphabet(Figure):
             symbol_length = random.randint(0, 10)
             combination = ''.join(random.choice(list(self.list_elements)) for _ in range(symbol_length))
             while combination in result:
+                symbol_length = random.randint(0, 10)
                 combination = ''.join(random.choice(list(self.list_elements)) for _ in range(symbol_length))
             result.append(combination)
         return result

@@ -8,10 +8,10 @@ class Language(Figura):
         return self.__class__(set((super().union(other)).split(", ")))
     
     def intersection(self, other):
-        return self.__class__(set((super().intersection(other))))
+        return self.__class__(set((super().intersection(other)).split(", ")))
     
     def difference(self, other):
-        return self.__class__(set((super().difference(other))))
+        return self.__class__(set((super().difference(other)).split(", ")))
 
     def __str__(self):
         return print(self.list_elements)

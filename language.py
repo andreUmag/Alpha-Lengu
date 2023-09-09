@@ -1,6 +1,6 @@
-from alphabets import *
+import figure
 
-class Language(Figure):
+class Language(figure.Figure):
     def __init__(self, language):
         self.list_elements = language
 

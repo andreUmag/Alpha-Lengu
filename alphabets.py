@@ -1,34 +1,19 @@
 import random
+import figure
 
-class Figure():
-    def union(self, other):
-        if isinstance(other, self.__class__):
-            return (", ".join(self.list_elements.union(other.list_elements)))
-        else:
-            raise ValueError("El argumento no es valido")
-        
-    def intersection(self, other):
-        if isinstance(other, self.__class__):
-            return (", ".join(self.list_elements.intersection(other.list_elements)))
-        else:
-            raise ValueError("El argumento no es valido")
-        
-    def difference(self, other):
-        if isinstance(other, self.__class__):
-            return (", ".join(self.list_elements.difference(other.list_elements)))
-        else:
-            raise ValueError("El argumento no es valido")
-
-class Alphabet(Figure):
+class Alphabet(figure.Figure):
     def __init__(self, alphabet):
         self.list_elements = set(alphabet.split(", "))
+
+    def __str__(self):
+        return ", ".join(self.list_elements)
 
     def add_alphabet(self, string):
         self.list_elements.add(string.split(','))
 
     def union(self, other):
         return self.__class__(super().union(other))
-    
+
     def intersection(self, other):
         return self.__class__(super().intersection(other))
     

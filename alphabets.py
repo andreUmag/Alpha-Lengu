@@ -1,6 +1,6 @@
 import random
 
-class Figura():
+class Figure():
     def union(self, other):
         if isinstance(other, self.__class__):
             return (", ".join(self.list_elements.union(other.list_elements)))
@@ -19,7 +19,7 @@ class Figura():
         else:
             raise ValueError("El argumento no es valido")
 
-class Alphabet(Figura):
+class Alphabet(Figure):
     def __init__(self, alphabet):
         self.list_elements = set(alphabet.split(", "))
 
@@ -35,20 +35,14 @@ class Alphabet(Figura):
     def difference(self, other):
         return self.__class__(super().difference(other))
 
-    def generate_word(self):
-        word = []
-        auxiliary_list=list(self.list_elements)
-        for _ in range(random.randint(2, 10)):
-            caracter = random.choice(auxiliary_list)
-            word.append(caracter)
-        return ''.join(word)
+    def language_generator(self, star_lock, number_of_words):
+        language = set()
 
-    def Language_generator(self, number_of_words):
-        Language=set()
         for _ in range(number_of_words):
-            Generated_word = self.generate_word()
-            Language.add(Generated_word)
-        return Language
+            generated_word = random.choice(star_lock)
+            language.add(generated_word)
+
+        return language
 
     def star_lock(self, length_star):
         result = []
@@ -61,12 +55,3 @@ class Alphabet(Figura):
             combination = ''.join(random.choice(list(self.list_elements)) for _ in range(symbol_length))
             result.append(combination)
         return result
-
-
-
-
-   
-
- 
-    
-

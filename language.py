@@ -1,4 +1,14 @@
-import alphabets
+from alphabets import *
 
-class Language(alphabets.Alphabet):
-    pass
+class Language(Figura):
+    def __init__(self, Language):
+        self.list_elements = Language
+
+    def union(self, other):
+        return self.__class__(set((super().union(other).split(", "))))
+    
+    def intersection(self, other):
+        return self.__class__(set((super().intersection(other))))
+    
+    def difference(self, other):
+        return self.__class__(set((super().difference(other))))

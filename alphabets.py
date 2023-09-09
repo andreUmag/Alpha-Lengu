@@ -40,6 +40,8 @@ class Alphabet(Figure):
 
         for _ in range(number_of_words):
             generated_word = random.choice(star_lock)
+            while generated_word in language:
+                generated_word = random.choice(star_lock)
             language.add(generated_word)
 
         return language
@@ -53,5 +55,7 @@ class Alphabet(Figure):
         for _ in range(length_star):
             symbol_length = random.randint(0, 10)
             combination = ''.join(random.choice(list(self.list_elements)) for _ in range(symbol_length))
+            while combination in result:
+                combination = ''.join(random.choice(list(self.list_elements)) for _ in range(symbol_length))
             result.append(combination)
         return result

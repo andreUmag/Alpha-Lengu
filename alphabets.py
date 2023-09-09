@@ -38,8 +38,9 @@ class Alphabet(Figura):
     
     def generate_word(self):
         word = []
+        auxiliary_list=list(self.list_elements)
         for _ in range(random.randint(2, 10)):
-            caracter = random.choice(self.list_elements)
+            caracter = random.choice(auxiliary_list)
             word.append(caracter)
         return ''.join(word)
 

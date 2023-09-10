@@ -33,24 +33,35 @@ if __name__ == "__main__":
     print(f"La diferencia de los alfabetos es: {dif}")
 
     print("Primer Alfabeto: ")
-    print(star_lock(alphabet1))
+    star_1 = star_lock(alphabet1)
+    print(star_1)
     print("Segundo Alfabeto: ")
-    print(star_lock(alphabet2))
+    star_2 = star_lock(alphabet2)
+    print(star_2)
 
-    lenguaje1 = 0
-    lenguaje2 = 0
+    lenguaje1 = Language(alphabet1.language_generator(star_1, int(input("Cantidad de palabras que tendrá el lenguaje "
+                                                                        "\n(Debe ser menor que la cantidad en la cerradura de estrella)"
+                                                                        "\n Indique: "))))
+    lenguaje1.__str__()
+    lenguaje2 = Language(alphabet2.language_generator(star_2, int(input("Cantidad de palabras que tendrá el lenguaje "
+                                                                        "\n(Debe ser menor que la cantidad en la cerradura de estrella)"
+                                                                        "\n Indique: "))))
+    lenguaje2.__str__()
 
-    unil = Language.union(lenguaje1, lenguaje2)
-    print(f"La unión de los lenguajes es: {unil}")
+    unil = lenguaje1.union(lenguaje2)
+    print(f"La unión de los lenguajes es: ")
+    unil.__str__()
 
-    interl = Language.intersection(lenguaje1, lenguaje2)
-    print(f"La interseccion de los lenguajes es: {interl}")
+    interl = lenguaje1.intersection(lenguaje2)
+    print(f"La interseccion de los lenguajes es: ")
+    interl.__str__()
 
-    difl = Language.difference(lenguaje1, lenguaje2)
-    print(f"La diferencia de los lenguajes es: {difl}")
+    difl = lenguaje1.difference(lenguaje2)
+    print(f"La diferencia de los lenguajes es: ")
+    difl.__str__()
 
-    conc = Language.concatenate(lenguaje1, lenguaje2)
-    print(f"La concatenacion de los lenguajes es: {conc}")
+    conc = lenguaje1.concatenate(lenguaje2)
+    print(f"La concatenacion de los lenguajes es:\n{conc}")
 
     print("Primer Lenguaje: ")
     print(potencia(lenguaje1))

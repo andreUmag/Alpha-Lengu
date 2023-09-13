@@ -24,17 +24,27 @@ def line_spacing():
 
 if __name__ == "__main__":
     alphabet1, alphabet2 = in_alphabets()
+    print("\n1.Unión de los alfabetos\n2.Intersección de los alfabetos\n3.Diferencia de los alfabetos\n4.Avanzar")
+    line_spacing()
+    while True:
+        selection = int(input("\nIndique: "))
+        match selection:
+            case 1:
+                uni = Alphabet.union(alphabet1, alphabet2)
+                print(f"La unión de los alfabetos es: {uni}")
+            case 2:
+                inter = Alphabet.intersection(alphabet1, alphabet2)
+                print(f"La interseccion de los alfabetos es: {inter}")
+            case 3:
+                dif = Alphabet.difference(alphabet1, alphabet2)
+                print(f"La diferencia de los alfabetos es: {dif}")
+            case 4:
+                break
+            case _:
+                print("Ha ingresado un indice incorrecto.")
 
     line_spacing()
-    uni = Alphabet.union(alphabet1, alphabet2)
-    print(f"\nLa unión de los alfabetos es: {uni}")
-    inter = Alphabet.intersection(alphabet1, alphabet2)
-    print(f"\nLa interseccion de los alfabetos es: {inter}")
-    dif = Alphabet.difference(alphabet1, alphabet2)
-    print(f"\nLa diferencia de los alfabetos es: {dif}")
-
-    line_spacing()
-    print("\nPrimer Alfabeto: ")
+    print("Primer Alfabeto: ")
     star_1 = star_lock(alphabet1)
     print(star_1)
     print("\nSegundo Alfabeto: ")
@@ -52,34 +62,43 @@ if __name__ == "__main__":
     language2.__str__()
 
     line_spacing()
-    unil = language1.union(language2)
-    print(f"\nLa unión de los lenguajes es: ")
-    unil.__str__()
-    interl = language1.intersection(language2)
-    print(f"\nLa interseccion de los lenguajes es: ")
-    interl.__str__()
-    difl = language1.difference(language2)
-    print(f"\nLa diferencia de los lenguajes es: ")
-    difl.__str__()
-
+    print("\n1.Unión de los Lenguajes\n2.Intersección de los alfabetos\n3.Diferencia de los alfabetos\n4.Concatenación entre lenguajes"
+          "\n5.Potencia de un lenguaje \n6.Inversa de un lenguaje \n7.Cardinalidad de un lenguaje \n8.Finalizar")
     line_spacing()
-    conc = language1.concatenate(language2)
-    print(f"\nLa concatenacion de los lenguajes es:\n{conc}")
-
-    line_spacing()
-    print("\nPrimer Lenguaje: ")
-    print(power(language1))
-    print("\nSegundo Lenguaje: ")
-    print(power(language2))
-
-    line_spacing()
-    print("\nPrimer Lenguaje inverso: ")
-    print(Language.inverse(language1))
-    print("\nSegundo Lenguaje inverso: ")
-    print(Language.inverse(language2))
-
-    line_spacing()
-    print("\nPrimer Lenguaje cardinalidad: ")
-    print(Language.cardinality(language1))
-    print("\nSegundo Lenguaje cardinalidad: ")
-    print(Language.cardinality(language2))
+    while True:
+        selection = int(input("\nIndique: "))
+        match selection:
+            case 1:
+                unil = language1.union(language2)
+                print(f"La unión de los lenguajes es: ")
+                unil.__str__()
+            case 2:
+                interl = language1.intersection(language2)
+                print(f"La interseccion de los lenguajes es: ")
+                interl.__str__()
+            case 3:
+                difl = language1.difference(language2)
+                print(f"La diferencia de los lenguajes es: ")
+                difl.__str__()
+            case 4:
+                conc = language1.concatenate(language2)
+                print(f"La concatenacion de los lenguajes es:\n{conc}")
+            case 5:
+                print("- Primer Lenguaje ")
+                print(power(language1))
+                print("\n- Segundo Lenguaje ")
+                print(power(language2))
+            case 6:
+                print("Primer Lenguaje inverso: ")
+                print(Language.inverse(language1))
+                print("Segundo Lenguaje inverso: ")
+                print(Language.inverse(language2))
+            case 7:
+                print("Primer Lenguaje cardinalidad: ")
+                print(Language.cardinality(language1))
+                print("\nSegundo Lenguaje cardinalidad: ")
+                print(Language.cardinality(language2))
+            case 8:
+                break
+            case _:
+                print("Ha ingresado un indice incorrecto.")
